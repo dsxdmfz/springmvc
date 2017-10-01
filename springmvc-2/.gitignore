@@ -1,0 +1,4 @@
+# 忽视idea的文件
+/.idea
+/out
+springmvc-2.iml
