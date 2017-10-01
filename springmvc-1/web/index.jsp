@@ -12,6 +12,12 @@
 </head>
 <body>
 
+<a href="/springMVC/testRedirect">testRedirect</a>
+<br><br>
+
+<a href="/springMVC/testView">testView</a>
+<br><br>
+
 <a href="/springMVC/testViewAndViewResolver">testViewAndViewResolver</a>
 <br><br>
 

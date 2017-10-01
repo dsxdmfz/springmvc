@@ -1,6 +1,7 @@
 package com.springmvc.handles;
 
 import com.springmvc.entites.User;
+import com.springmvc.views.HelloView;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +22,18 @@ import java.util.Map;
 @Controller
 public class SpringMVCTest {
     private static final String SUCCESS = "success";
+
+    @RequestMapping("/testRedirect")
+    public String testRedirect() {
+        System.out.println("testRedirect");
+        return "redirect:/index.jsp";
+    }
+
+    @RequestMapping("/testView")
+    public String testView() {
+        System.out.println("testView");
+        return "helloView";
+    }
 
     @RequestMapping("/testViewAndViewResolver")
     public static String testViewAndViewResolver() {
