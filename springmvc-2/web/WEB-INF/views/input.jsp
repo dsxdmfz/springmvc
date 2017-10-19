@@ -14,6 +14,13 @@
     <title>Title</title>
 </head>
 <body>
+
+    <form action="testConversionServiceConverer" method="post">
+        Employee: <input type="text" name="employee">
+        <input type="submit" value="submit"/>
+    </form>
+    <br><br>
+
     <%--
         1. WHY 使用form 标签?
         可以更快速的开发出表单页面，而且可以更方便的进行表单值的回显
