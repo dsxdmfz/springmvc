@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
@@ -49,7 +50,8 @@ public class EmployeeHandler {
     }
 
     @RequestMapping(value = "/emp", method = RequestMethod.POST)
-    public String save(Employee employee, BindingResult result) {
+    public String save(@Valid Employee employee, BindingResult result,
+                       Map<String,Object> map) {
         employeeDao.save(employee);
         System.out.println("save:"+employee);
 
@@ -57,6 +59,10 @@ public class EmployeeHandler {
             System.out.println("出错了！！！");
             for (FieldError error:result.getFieldErrors()) {
                 System.out.println(error.getField()+":"+error.getDefaultMessage());
+
+                //若验证出错，则转向制定的页面
+                map.put("departments", departmentDao.getDepartments());
+                return "input";
             }
         }
 

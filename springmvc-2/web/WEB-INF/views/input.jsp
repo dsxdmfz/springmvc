@@ -65,6 +65,14 @@
             1.数据类型转换
             2.数据类型格式化
             3.数据校验
+            1).如何校验？注解？
+            ①. 使用JSR 303验证biaozh
+            ②. 加入hibernate validator 验证框架的jar包
+            ③. 在springMVC 配置文件中添加<mvc:annotation-driven />
+            ④. 在需要的bean 的属性上添加对应的注解
+            2).验证出错转向哪一个页面？
+            注意：需要校验的bean 对象和其他绑定结果对象或错误对象是成对出现的，它们之间不允许声明其它的入参
+            3).错误消息？如何显示，如把错误消息进行国际化
         --%>
         Birth:<form:input path="birth"/>
         <br>
