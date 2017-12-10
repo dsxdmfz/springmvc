@@ -26,7 +26,13 @@
     <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 
     <!--配置ConversionService-->
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <!--
+         自定义格式化：class="org.springframework.context.support.ConversionServiceFactoryBean"
+         既可以自定义，又能用spring自带的格式化：
+         class="org.springframework.format.support.FormattingConversionServiceFactoryBean"
+    -->
+    <bean id="conversionService"
+        class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
             <set>
                 <ref bean="employeeConverter"/>
