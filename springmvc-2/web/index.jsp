@@ -9,9 +9,29 @@
 <html>
   <head>
     <title>$Title$</title>
+    <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+          $("#testJSON").click(function () {
+              var url = this.href;
+              var args = {};
+              $.post(url,args,function (data) {
+                  for(var i=0;i<data.length;i++){
+                      var id = data[i].id;
+                      var name = data[i].lastName
+
+                      alert(id+":"+name);
+                  }
+              });
+              return false;
+          });
+      })
+    </script>
   </head>
   <body>
   <a href="emps">List All Employees</a>
   <br><br>
+  <a href="testJSON" id="testJSON">testJSON</a>
+
   </body>
 </html>
