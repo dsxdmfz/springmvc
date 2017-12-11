@@ -30,6 +30,10 @@
         如果该属性值也不存在，则发生错误
     --%>
     <form:form action="${pageContext.request.contextPath }/emp" method="post" modelAttribute="employee">
+
+        <%--<form:errors path="*"></form:errors>--%>
+        <%--<br><br>--%>
+
         <c:if test="${employee.id == null }">
             <!-- path 属性对应 html 表单标签的 name 属性值 -->
             LastName: <form:input path="lastName"/>
@@ -45,6 +49,7 @@
         </c:if>
         <br>
         email: <form:input path="email"/>
+        <form:errors path="email"></form:errors>
         <br>
         <%
             Map<String, String> genders = new HashMap();
@@ -75,8 +80,10 @@
             3).错误消息？如何显示，如把错误消息进行国际化
         --%>
         Birth:<form:input path="birth"/>
+        <form:errors path="birth"></form:errors>
         <br>
         Salary:<form:input path="salary"/>
+        <form:errors path="salary"></form:errors>
         <br>
 
         <input type="submit" value="submit"/>

@@ -12,6 +12,7 @@ import org.springframework.format.annotation.NumberFormat;
 public class Employee {
 
 	private Integer id;
+
 	@NotEmpty
 	private String lastName;
 
