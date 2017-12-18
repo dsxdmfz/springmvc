@@ -40,8 +40,23 @@
         </property>
     </bean>
 
+    <!--配置国际化文件-->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="i18n"></property>
     </bean>
 
+    <!--配置SessionLocaleResolver-->
+    <!--todo:id 要用localeResolver 命名
+        用todo 只是为了显眼
+    -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+
+    <!--配置LocaleChangeInterceptor-->
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+    </mvc:interceptors>
+
+    <!--<mvc:view-controller path="/i18n" view-name="i18n" />-->
+    <mvc:view-controller path="/i18n2" view-name="i18n2" />
+    
 </beans>

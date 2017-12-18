@@ -3,6 +3,7 @@ package com.springmvc.crud.test;
 import com.springmvc.crud.dao.EmployeeDao;
 import com.springmvc.crud.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +19,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Locale;
 
 @Controller
 public class SpringMVCTest {
 
     @Autowired
     private EmployeeDao employeeDao;
+    @Autowired
+    private ResourceBundleMessageSource messageSource;
+
+    @RequestMapping("/i18n")
+    public String testI18n(Locale locale){
+        String value = messageSource.getMessage("i18n.user",null,locale);
+        System.out.println(value);
+        return "i18n";
+    }
 
     @RequestMapping("/testResponseEntity")
     public ResponseEntity<byte[]> testResponseEntity(HttpSession session) throws IOException {
